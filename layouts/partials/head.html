@@ -15,22 +15,34 @@
   <link rel="stylesheet" href="{{ "/css/poole-overrides.css" | absURL }}">
   <link rel="stylesheet" href="{{ "/css/hyde-overrides.css" | absURL }}">
   <link rel="stylesheet" href="{{ "/css/hyde-x.css" | absURL }}">
-  {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ "/css/highlight/" | absURL }}{{ .Site.Params.highlight }}.css">{{ end }}
+  <link rel="stylesheet" href="{{ "/css/hyde-sb.css" | absURL }}">
+
+  {{ if isset .Site.Params "highlight" }}
+  <link rel="stylesheet" href="{{ "/css/highlight/" | absURL }}{{ .Site.Params.highlight }}.css">
+  {{ end }}
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  {{ with .Site.Params.customCSS }}<link rel="stylesheet" href="{{ . }}">{{ end }}
+
+  {{ with .Site.Params.customCSS }}
+  <link rel="stylesheet" href="{{ . }}">
+  {{ end }}
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ "/touch-icon-144-precomposed.png" | absURL }}">
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
   <link href="{{ "/favicon.png" | absURL }}" rel="icon">
 
   <!-- RSS -->
   {{ $siteTitle := .Site.Title }}
   {{ $authorName := .Site.Author.name }}
-  {{ with .RSSLink }}<link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }} &middot; {{ $authorName }}" />{{ end }}
+  {{ with .RSSLink }}
+  <link href="{{ . }}" rel="alternate" type="application/rss+xml" title="{{ $siteTitle }} &middot; {{ $authorName }}" />
+  {{ end }}
 
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
+  
+  <!-- Google Analytics -->
   {{ with .Site.Params.googleAnalytics }}
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,6 +54,8 @@
     ga('send', 'pageview');
   </script>
   {{ end }}
+
 </head>
 <body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
+
 {{ partial "sidebar.html" . }}
