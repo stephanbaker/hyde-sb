@@ -1,0 +1,18 @@
+name = "Hyde-SB"
+license = "MIT"
+licenselink = "https://github.com/stephanbaker/hyde-sb/LICENSE"
+description = "A simple theme for my personal site."
+homepage = "https://github.com/stephanbaker/hyde-sb"
+tags = ["blog", "technical", "personal"]
+features = ["blog", "technical", "personal"]
+min_version = 0.14
+
+[author]
+    name = "Stephan Baker"
+    homepage = "http://www.stephanbaker.com"
+
+# If Porting existing theme
+[original]
+    author = "Andrei Mihu"
+    homepage = "http://andreimihu.com"
+    repo = "https://github.com/zyro/hyde-x"
